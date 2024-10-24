@@ -33,8 +33,35 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <iframe id="myIframe" src="https://data-computing-9313.scratch.my.site.com/event/event-detail?recordId=a0JH4000000bETDMA2&studentId=003H4000007RtigIAC" 
-    style="width: 100%; height: 100vh; border: none;" title="Iframe Example"></iframe>
+  <div id="iframe-container"></div>
+
+    <script>
+        window.addEventListener('load', function() {
+          console.log(getParameterByName('iframe'));
+            // // Create the iframe element
+            // var iframe = document.createElement('iframe');
+            // iframe.src = 'https://example.com'; // Replace with your desired URL
+            // iframe.width = '500'; // Adjust width as needed
+            // iframe.height = '300'; // Adjust height as needed
+
+            // // Append the iframe to the container
+            // document.getElementById('iframe-container').appendChild(iframe);
+        });
+    </script>
+    <script>
+      function getParameterByName(name) {
+        url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+        var results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g,   
+       " "));
+      }
+    </script>
+<!--   <iframe id="myIframe" src="https://data-computing-9313.scratch.my.site.com/event/event-detail?recordId=a0JH4000000bETDMA2&studentId=003H4000007RtigIAC" 
+    style="width: 100%; height: 100vh; border: none;" title="Iframe Example"></iframe> -->
   <script>
   window.addEventListener('message', function(event) {
     console.log('Received message:', event.data);
