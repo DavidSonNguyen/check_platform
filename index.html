@@ -33,18 +33,21 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <iframe src="https://data-computing-9313.scratch.my.site.com/event/event-detail?recordId=a0JH4000000bETDMA2&studentId=003H4000007RtigIAC" 
+  <iframe id="myIframe" src="https://data-computing-9313.scratch.my.site.com/event/event-detail?recordId=a0JH4000000bETDMA2&studentId=003H4000007RtigIAC" 
     style="width: 100%; height: 100vh; border: none;" title="Iframe Example"></iframe>
   <script>
   window.addEventListener('message', function(event) {
     console.log('Received message:', event.data);
     postMessage(event.data);
+    if (event.data === 'callback to webview') {
+      var iframe = document.getElementById('myIframe');
+      iframe.contentWindow.postMessage('From Webpage to LWC', '*');
+    }
   });
 </script>
   <script type='text/javascript'>
 
 function postMessage(message){
-
     ManabieChannel.postMessage(message);
 }
 
