@@ -37,15 +37,16 @@
 
     <script>
         window.addEventListener('load', function() {
-          console.log(getParameterByName('iframe'));
-            // // Create the iframe element
-            // var iframe = document.createElement('iframe');
-            // iframe.src = 'https://example.com'; // Replace with your desired URL
-            // iframe.width = '500'; // Adjust width as needed
-            // iframe.height = '300'; // Adjust height as needed
+          let url =  getParameterByName('iframe');
+            // Create the iframe element
+            var iframe = document.createElement('iframe');
+            iframe.src = url; // Replace with your desired URL
+            iframe.style.width = '100%'; // Adjust width as needed
+            iframe.style.height = '100vh'; // Adjust height as needed
+            iframe.style.border = 'none';
 
-            // // Append the iframe to the container
-            // document.getElementById('iframe-container').appendChild(iframe);
+            // Append the iframe to the container
+            document.getElementById('iframe-container').appendChild(iframe);
         });
     </script>
     <script>
