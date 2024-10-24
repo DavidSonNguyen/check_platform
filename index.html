@@ -38,7 +38,7 @@
   <script>
   window.addEventListener('message', function(event) {
     console.log('Received message:', event.data);
-    postMessage(event.data);
+    postMessage(event.data + ' return');
     if (event.data.includes("callback to webview")) {
       postMessage('Ok from WebPage');
       var iframe = document.getElementById('myIframe');
