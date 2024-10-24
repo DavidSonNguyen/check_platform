@@ -52,13 +52,12 @@
     <script>
       function getParameterByName(name) {
         url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
-        var results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g,   
-       " "));
+        const parsedUrl = new URL(url);
+
+        // Use URLSearchParams to get the 'iframe' parameter
+        const params = new URLSearchParams(parsedUrl.hash.split('?')[1]);
+        const iframeUrl = params.get('iframe');
+        return iframeUrl;
       }
     </script>
 <!--   <iframe id="myIframe" src="https://data-computing-9313.scratch.my.site.com/event/event-detail?recordId=a0JH4000000bETDMA2&studentId=003H4000007RtigIAC" 
