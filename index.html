@@ -38,9 +38,9 @@
   <script>
   window.addEventListener('message', function(event) {
     console.log('Received message:', event.data);
-    postMessage(event.data + ' return');
+    sendMessage(event.data + ' return');
     if (event.data.includes("callback to webview")) {
-      postMessage('Ok from WebPage');
+      sendMessage('Ok from WebPage');
       var iframe = document.getElementById('myIframe');
       iframe.contentWindow.postMessage('From Webpage to LWC', '*');
     }
@@ -48,7 +48,7 @@
 </script>
   <script type='text/javascript'>
 
-function postMessage(message){
+function sendMessage(message){
     ManabieChannel.postMessage(message);
 }
 
