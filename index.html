@@ -37,7 +37,7 @@
 
     <script>
         window.addEventListener('load', function() {
-          let url =  getParameterByName('iframe');
+            let url =  getParameterByName('iframe');
             // Create the iframe element
             var iframe = document.createElement('iframe');
             iframe.src = url; // Replace with your desired URL
@@ -52,11 +52,9 @@
     <script>
       function getParameterByName(name) {
         url = window.location.href;
-        const parsedUrl = new URL(url);
-
-        // Use URLSearchParams to get the 'iframe' parameter
-        const params = new URLSearchParams(parsedUrl.hash.split('?')[1]);
-        const iframeUrl = params.get('iframe');
+        const iframeParamIndex = url.indexOf('iframe=');
+        const iframeUrl = iframeParamIndex !== -1 ? url.substring(iframeParamIndex + 7) : null; // +7 to skip 'iframe='
+        
         return iframeUrl;
       }
     </script>
