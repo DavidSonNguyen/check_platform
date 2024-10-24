@@ -35,6 +35,20 @@
 <body>
   <iframe src="https://data-computing-9313.scratch.my.site.com/event/event-detail?recordId=a0JH4000000bETDMA2&studentId=003H4000007RtigIAC" 
     style="width: 100%; height: 100vh; border: none;" title="Iframe Example"></iframe>
+  <script>
+  window.addEventListener('message', function(event) {
+    console.log('Received message:', event.data);
+    postMessage(event.data);
+  });
+</script>
+  <script type='text/javascript'>
+
+function postMessage(){
+
+    ManabieChannel.postMessage('success');
+}
+
+</script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
