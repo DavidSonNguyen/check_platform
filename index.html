@@ -39,7 +39,7 @@
   window.addEventListener('message', function(event) {
     console.log('Received message:', event.data);
     postMessage(event.data);
-    if (event.data == 'callback to webview') {
+    if (event.data.includes("callback to webview")) {
       postMessage('Ok from WebPage');
       var iframe = document.getElementById('myIframe');
       iframe.contentWindow.postMessage('From Webpage to LWC', '*');
